@@ -1,9 +1,8 @@
 if 1
-    tic
     stana_gen_exp_info;
     stana_USE_WRAPPER = 1;
-    stana_wrapper_cfg.LOAD_SAVED_RES = 0;
-    stana_wrapper_cfg.DO_GEN_EXP_TLE_FILE = 0;
+    stana_wrapper_cfg.LOAD_SAVED_RES = 1;
+    stana_wrapper_cfg.DO_GEN_EXP_TLE_FILE = 1;
     stana_wrapper_cfg.GEN_SIG = 1;
     stana_wrapper_cfg.DO_INIT_SCAN = 1;
     stana_wrapper_cfg.DO_SAT_LM = 1;  
@@ -65,8 +64,6 @@ if 1
                     [a,b] = min(plotscore);
                     calvals = (plottry + plotadd(b))*180/pi;
                     thisres = [calvals';meavals]';
-                    % thisres = mod(thisres, 360);
-                    % tempp = find(thisres > 180);  thisres(tempp) = thisres(tempp) - 360;
                     plot_phasemea = [plot_phasemea; thisres];
                 end   
 
@@ -86,7 +83,6 @@ if 1
     plot_mainres_no_failure = plot_mainres(tempp,:);
     tempp = find(plot_mainres_no_failure(:,8)>=3);
     plot_mainres_3runs = plot_mainres_no_failure(tempp,:);
-    toc
 end
 
 
@@ -102,7 +98,6 @@ STANA_WRAPPER_SAVE_FIG_dir = '../revision_paper/paper_stana_Sensys'
 
 myfontsize = 18;
 if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
-    % thisfigname = '../paper_stana/res_scatterest.fig';
     thisfigname = sprintf('%s/res_scatterest.fig',STANA_WRAPPER_SAVE_FIG_dir);
     thispngname = thisfigname; thispngname(end-2:end) = 'png';
     openfig(thisfigname);
@@ -126,10 +121,9 @@ if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
 end
 
 if 1 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
-    % thisfigname = '../paper_stana/res_esterr.fig';
     thisfigname = sprintf('%s/res_esterr.fig',STANA_WRAPPER_SAVE_FIG_dir);
     thispngname = thisfigname; thispngname(end-2:end) = 'png';
-    % openfig(thisfigname);
+    openfig(thisfigname);
     p1 = cdfplot(abs(plot_mainres_no_failure(:,2)-plot_mainres_no_failure(:,1)));
     set(p1, 'LineStyle', '-', 'LineWidth', 2);
     xlabel('Estimation Error (deg)')
@@ -146,7 +140,6 @@ if 1 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
 end
 
 if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
-    % thisfigname = '../paper_stana/res_scatterphasemea.fig';
     thisfigname = sprintf('%s/res_scatterphasemea.fig',STANA_WRAPPER_SAVE_FIG_dir);
     thispngname = thisfigname; thispngname(end-2:end) = 'png';
     openfig(thisfigname);
@@ -170,7 +163,6 @@ if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
 end
 
 if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
-    % thisfigname = '../paper_stana/res_phasemeaerr.fig';
     thisfigname = sprintf('%s/res_phasemeaerr.fig',STANA_WRAPPER_SAVE_FIG_dir);
     thispngname = thisfigname; thispngname(end-2:end) = 'png';
     openfig(thisfigname);
@@ -190,7 +182,6 @@ if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
 end
 
 if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
-    % thisfigname = '../paper_stana/show_snr.fig';
     thisfigname = sprintf('%s/show_snr.fig',STANA_WRAPPER_SAVE_FIG_dir);    
     thispngname = thisfigname; thispngname(end-2:end) = 'png';
     openfig(thisfigname);
@@ -210,7 +201,6 @@ if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
 end
 
 if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
-    % thisfigname = '../paper_stana/show_satpair.fig';
     thisfigname = sprintf('%s/show_satpair.fig',STANA_WRAPPER_SAVE_FIG_dir);
     thispngname = thisfigname; thispngname(end-2:end) = 'png';
     openfig(thisfigname);
@@ -230,7 +220,6 @@ if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
 end
 
 if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
-    % thisfigname = '../paper_stana/show_phasemea.fig';
     thisfigname = sprintf('%s/show_phasemea.fig',STANA_WRAPPER_SAVE_FIG_dir);
     thispngname = thisfigname; thispngname(end-2:end) = 'png';
     openfig(thisfigname);
@@ -250,75 +239,47 @@ if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
 end
 
 
-% if 0
-%     thisfigname = '../paper_stana/show_satmatch.fig';
-%     thispngname = thisfigname; thispngname(end-2:end) = 'png';
-%     openfig(thisfigname);
-%     p1 = cdfplot(plot_mainres(:,6));
-%     set(p1, 'LineStyle', '-', 'LineWidth', 2);
-%     xlabel('Doppler Rate Difference (Hz/sec)')
-%     ylabel('Fraction')
-%     titlestr = sprintf('Satellite Matching');
-%     title(titlestr)
-%     set(gca,'FontSize',myfontsize);
-%     grid on
-%     % xlim([0 30])
-%     if 1
-%         saveas(gcf,thisfigname);
-%         saveas(gcf,thispngname);
-%     end
-% end
 
 if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
-    % thisfigname = '../paper_stana/res_err_snr.fig';
     thisfigname = sprintf('%s/res_err_snr.fig',STANA_WRAPPER_SAVE_FIG_dir);
     thispngname = thisfigname; thispngname(end-2:end) = 'png';
     openfig(thisfigname);
 
-    if 0
-        p1 = plot(plot_mainres_no_failure(:,3),abs(plot_mainres_no_failure(:,2)-plot_mainres_no_failure(:,1)),'>');
-        set(p1, 'MarkerSize',3);
-    else
-        plot_x_0 = plot_mainres_no_failure(:,3);
-        plot_y_0 = abs(plot_mainres_no_failure(:,2)-plot_mainres_no_failure(:,1));
-        plot_bins = [
-            -100,-34;
-            -34,-33;
-            -33,-32;
-            -32,100;
-            ];
-        plot_y_1 = zeros(size(plot_bins,1),2);
-        plot_y_2 = zeros(1,size(plot_bins,1));
-        for h=1:size(plot_bins,1)
-            tempp = find(plot_x_0 >= plot_bins(h,1) & plot_x_0 <= plot_bins(h,2));
-            plot_y_1(h,:) = [sum(plot_y_0(tempp)) length(tempp)];
-            plot_y_2(h) = median(plot_y_0(tempp));
-        end
-        plot_y = plot_y_1(:,1)./plot_y_1(:,2);
-        plot_y = plot_y_2;
-
-        bar(plot_y)
-        % plot_bin_label = cell(1,4);
-        % plot_bin_label{1} = '$<$ -34';
-        % plot_bin_label{2} = '[-34,33)';
-        % plot_bin_label{3} = '[-33,32)';
-        % plot_bin_label{4} = '$\ge$ 32';
-        plot_bin_label = cell(1,size(plot_bins,1));
-        for h=1:size(plot_bins,1)
-            if h==1
-                plot_bin_label{h} = sprintf('$<$ %d', plot_bins(h,2));
-            elseif h==size(plot_bins,1)
-                plot_bin_label{h} = sprintf('$\\ge$ %d', plot_bins(h,1));
-            else
-                plot_bin_label{h} = sprintf('[%d,%d)', plot_bins(h,1),plot_bins(h,2));
-            end
-        end
-
-        set(gca, 'XTickLabel',plot_bin_label, 'XTick',1:numel(plot_bin_label))   
-        xaxisproperties= get(gca, 'XAxis');
-        xaxisproperties.TickLabelInterpreter = 'latex'; % latex for x-axis
-        ylim([0 10])
+    plot_x_0 = plot_mainres_no_failure(:,3);
+    plot_y_0 = abs(plot_mainres_no_failure(:,2)-plot_mainres_no_failure(:,1));
+    plot_bins = [
+        -100,-34;
+        -34,-33;
+        -33,-32;
+        -32,100;
+        ];
+    plot_y_1 = zeros(size(plot_bins,1),2);
+    plot_y_2 = zeros(1,size(plot_bins,1));
+    for h=1:size(plot_bins,1)
+        tempp = find(plot_x_0 >= plot_bins(h,1) & plot_x_0 <= plot_bins(h,2));
+        plot_y_1(h,:) = [sum(plot_y_0(tempp)) length(tempp)];
+        plot_y_2(h) = median(plot_y_0(tempp));
     end
+    plot_y = plot_y_1(:,1)./plot_y_1(:,2);
+    plot_y = plot_y_2;
+
+    bar(plot_y)
+    plot_bin_label = cell(1,size(plot_bins,1));
+    for h=1:size(plot_bins,1)
+        if h==1
+            plot_bin_label{h} = sprintf('$<$ %d', plot_bins(h,2));
+        elseif h==size(plot_bins,1)
+            plot_bin_label{h} = sprintf('$\\ge$ %d', plot_bins(h,1));
+        else
+            plot_bin_label{h} = sprintf('[%d,%d)', plot_bins(h,1),plot_bins(h,2));
+        end
+    end
+
+    set(gca, 'XTickLabel',plot_bin_label, 'XTick',1:numel(plot_bin_label))   
+    xaxisproperties= get(gca, 'XAxis');
+    xaxisproperties.TickLabelInterpreter = 'latex'; % latex for x-axis
+    ylim([0 10])
+
     xlabel('SNR (dB)')
     ylabel('Median Error (deg)')
     titlestr = sprintf('Error vs. SNR');
@@ -333,7 +294,6 @@ if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
 end
 
 if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
-    % thisfigname = '../paper_stana/res_err_numsatpair.fig';
     thisfigname = sprintf('%s/res_err_numsatpair.fig',STANA_WRAPPER_SAVE_FIG_dir);
     thispngname = thisfigname; thispngname(end-2:end) = 'png';
     openfig(thisfigname);
@@ -369,16 +329,6 @@ if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
 
         bar(plot_y)
         plot_bin_label = cell(1,size(plot_bins,1));
-        % if size(plot_bins,1) == 4
-        %     plot_bin_label{1} = '1';
-        %     plot_bin_label{2} = '2';
-        %     plot_bin_label{3} = '3';
-        %     plot_bin_label{4} = '$\ge$ 4';
-        % else
-        %     plot_bin_label{1} = '1';
-        %     plot_bin_label{2} = '[2,3]';
-        %     plot_bin_label{3} = '$\ge$ 4';
-        % end
         plot_bin_label = cell(1,size(plot_bins,1));
         for h=1:size(plot_bins,1)
             if h==size(plot_bins,1)
@@ -411,51 +361,43 @@ if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
 end
 
 if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
-    %thisfigname = '../paper_stana/res_err_nummea.fig';
     thisfigname = sprintf('%s/res_err_nummea.fig',STANA_WRAPPER_SAVE_FIG_dir);
     thispngname = thisfigname; thispngname(end-2:end) = 'png';
     openfig(thisfigname);
-    if 0
-        p1 = plot(plot_mainres_no_failure(:,4),abs(plot_mainres_no_failure(:,2)-plot_mainres_no_failure(:,1)), '>');
-        set(p1, 'MarkerSize',3);
-    else
-        plot_x_0 = plot_mainres_no_failure(:,4);
-        plot_y_0 = abs(plot_mainres_no_failure(:,2)-plot_mainres_no_failure(:,1));
-        % plot_y_0 = abs(plot_mainres_no_failure(:,2)-plot_mainres_no_failure(:,7));
-        plot_bins = [
-            0,10;
-            11,20;
-            21,40;
-            % 41,100;
-            41,100;
-            ];
-        plot_y_1 = zeros(size(plot_bins,1),2);
-        plot_y_2 = zeros(1,size(plot_bins,1));
-        for h=1:size(plot_bins,1)
-            tempp = find(plot_x_0 >= plot_bins(h,1) & plot_x_0 <= plot_bins(h,2));
-            plot_y_1(h,:) = [sum(plot_y_0(tempp)) length(tempp)];
-            plot_y_2(h) = median(plot_y_0(tempp));
-        end
-        plot_y = plot_y_1(:,1)./plot_y_1(:,2);
-        plot_y = plot_y_2;
-
-        bar(plot_y)
-        plot_bin_label = cell(1,size(plot_bins,1));
-        for h=1:size(plot_bins,1)
-            if h==1
-                plot_bin_label{h} = sprintf('$\\le$ %d', plot_bins(h,2));
-            elseif h==size(plot_bins,1)
-                plot_bin_label{h} = sprintf('$\\ge$ %d', plot_bins(h,1));
-            else
-                plot_bin_label{h} = sprintf('[%d,%d]', plot_bins(h,1),plot_bins(h,2));
-            end
-        end
-        set(gca, 'XTickLabel',plot_bin_label, 'XTick',1:numel(plot_bin_label))   
-        xaxisproperties= get(gca, 'XAxis');
-        xaxisproperties.TickLabelInterpreter = 'latex'; % latex for x-axis
-        ylim([0 10])
-        
+    plot_x_0 = plot_mainres_no_failure(:,4);
+    plot_y_0 = abs(plot_mainres_no_failure(:,2)-plot_mainres_no_failure(:,1));
+    plot_bins = [
+        0,10;
+        11,20;
+        21,40;
+        41,100;
+        ];
+    plot_y_1 = zeros(size(plot_bins,1),2);
+    plot_y_2 = zeros(1,size(plot_bins,1));
+    for h=1:size(plot_bins,1)
+        tempp = find(plot_x_0 >= plot_bins(h,1) & plot_x_0 <= plot_bins(h,2));
+        plot_y_1(h,:) = [sum(plot_y_0(tempp)) length(tempp)];
+        plot_y_2(h) = median(plot_y_0(tempp));
     end
+    plot_y = plot_y_1(:,1)./plot_y_1(:,2);
+    plot_y = plot_y_2;
+
+    bar(plot_y)
+    plot_bin_label = cell(1,size(plot_bins,1));
+    for h=1:size(plot_bins,1)
+        if h==1
+            plot_bin_label{h} = sprintf('$\\le$ %d', plot_bins(h,2));
+        elseif h==size(plot_bins,1)
+            plot_bin_label{h} = sprintf('$\\ge$ %d', plot_bins(h,1));
+        else
+            plot_bin_label{h} = sprintf('[%d,%d]', plot_bins(h,1),plot_bins(h,2));
+        end
+    end
+    set(gca, 'XTickLabel',plot_bin_label, 'XTick',1:numel(plot_bin_label))   
+    xaxisproperties= get(gca, 'XAxis');
+    xaxisproperties.TickLabelInterpreter = 'latex'; % latex for x-axis
+    ylim([0 10])
+
     xlabel('Number of Measurements')
     ylabel('Median Error (deg)')
     titlestr = sprintf('Error vs. Number of Measurements');
@@ -469,27 +411,7 @@ if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
     end
 end
 
-% if 0
-%     thisfigname = '../paper_stana/res_err_matching.fig';
-%     thispngname = thisfigname; thispngname(end-2:end) = 'png';
-%     openfig(thisfigname);
-%     p1 = plot(plot_mainres_no_failure(:,6),abs(plot_mainres_no_failure(:,2)-plot_mainres_no_failure(:,1)), '>');
-%     set(p1, 'MarkerSize',3);
-%     xlabel('Doppler Rate Difference (Hz/sec)')
-%     ylabel('Estimation Error (deg)')
-%     titlestr = sprintf('Estimation Error vs. Matching Error');
-%     title(titlestr)
-%     set(gca,'FontSize',myfontsize);
-%     grid on
-%     % xlim([0 30])
-%     if 1
-%         saveas(gcf,thisfigname);
-%         saveas(gcf,thispngname);
-%     end
-% end
-
 if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
-    % thisfigname = '../paper_stana/res_consistency.fig';
     thisfigname = sprintf('%s/res_consistency.fig',STANA_WRAPPER_SAVE_FIG_dir);
     thispngname = thisfigname; thispngname(end-2:end) = 'png';
     openfig(thisfigname);
