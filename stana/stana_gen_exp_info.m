@@ -7,13 +7,13 @@ stana_exp_info{expidx}.angles{1}.angleval_deg = -40;
 stana_exp_info{expidx}.angles{1}.filelist = {
     '../own_starlink_trace_int/06-16-gaines/angle140/sig1_ant1',...  % good -50
     '../own_starlink_trace_int/06-16-gaines/angle140/sig5_ant1',...  % good -49
-    '../own_starlink_trace_int/06-16-gaines/angle140/sig3_ant1'};  % good -32
+    '../own_starlink_trace_int/06-16-gaines/angle140/sig3_ant1'};  % good -41
 
 stana_exp_info{expidx}.angles{2}.angleval_deg = 30;
 stana_exp_info{expidx}.angles{2}.filelist = {
     '../own_starlink_trace_int/06-16-gaines/angle210/sig6_ant1',...  % good 25
     '../own_starlink_trace_int/06-16-gaines/angle210/sig2_ant1',...  % good 23 
-    '../own_starlink_trace_int/06-16-gaines/angle210/sig1_ant1'};  % good 25
+    '../own_starlink_trace_int/06-16-gaines/angle210/sig1_ant1'};  % good 24
 
 expidx = 2;
 % good for now, only 2 good runs each angle
@@ -25,7 +25,7 @@ stana_exp_info{expidx}.angles{1}.filelist = {
 stana_exp_info{expidx}.angles{2}.angleval_deg = 30;
 stana_exp_info{expidx}.angles{2}.filelist = {
     '../own_starlink_trace_int/06-19-lov/angle210/sig3_ant1',... % 39, one good pair
-    '../own_starlink_trace_int/06-19-lov/angle210/sig4_ant1'}; % 33, 3 sats
+    '../own_starlink_trace_int/06-19-lov/angle210/sig4_ant1'}; % 34, 3 sats
 
 expidx = 3; 
 % good
@@ -38,7 +38,7 @@ stana_exp_info{expidx}.angles{1}.filelist = {
 stana_exp_info{expidx}.angles{2}.angleval_deg = 36;
 stana_exp_info{expidx}.angles{2}.filelist = {
     '../own_starlink_trace_int/06-25-spirit/angle216/sig4_ant1',... % 20
-    '../own_starlink_trace_int/06-25-spirit/angle216/sig8_ant1',... % 21
+    '../own_starlink_trace_int/06-25-spirit/angle216/sig8_ant1',... % 22
     '../own_starlink_trace_int/06-25-spirit/angle216/sig9_ant1'}; % 16
 
 
@@ -64,25 +64,25 @@ stana_exp_info{expidx}.angles{1}.angleval_deg = 120;
 stana_exp_info{expidx}.angles{1}.filelist = {
     '../own_starlink_trace_int/06-27-persi/angle300/sig3_ant1',... % 131
     '../own_starlink_trace_int/06-27-persi/angle300/sig7_ant1',... % 104, phase matching not good
-    '../own_starlink_trace_int/06-27-persi/angle300/sig5_ant1'}; % 108
+    '../own_starlink_trace_int/06-27-persi/angle300/sig5_ant1'}; % 107
 stana_exp_info{expidx}.angles{2}.angleval_deg = -88;
 stana_exp_info{expidx}.angles{2}.filelist = {
     '../own_starlink_trace_int/06-27-persi/angle92/sig3_ant1',... % -86
     '../own_starlink_trace_int/06-27-persi/angle92/sig5_ant1',... % -89
-    '../own_starlink_trace_int/06-27-persi/angle92/sig7_ant1'}; % -88
+    '../own_starlink_trace_int/06-27-persi/angle92/sig7_ant1'}; % -87
 
 expidx = 6;
 % good
 stana_exp_info{expidx}.angles = cell(1,2);
 stana_exp_info{expidx}.angles{1}.angleval_deg = 1;
 stana_exp_info{expidx}.angles{1}.filelist = {
-    '../own_starlink_trace_int/06-27-amol/angle181/sig4_ant1',... % 2
-    '../own_starlink_trace_int/06-27-amol/angle181/sig5_ant1',... % -1
+    '../own_starlink_trace_int/06-27-amol/angle181/sig4_ant1',... % 3
+    '../own_starlink_trace_int/06-27-amol/angle181/sig5_ant1',... % 0
     '../own_starlink_trace_int/06-27-amol/angle181/sig12_ant1'};% 2, very good, 1 pairs 
 stana_exp_info{expidx}.angles{2}.angleval_deg = 150;
 stana_exp_info{expidx}.angles{2}.filelist = {
     '../own_starlink_trace_int/06-27-amol/angle330/sig2_ant1',... % 155, good 3 sats
-    '../own_starlink_trace_int/06-27-amol/angle330/sig3_ant1',... % 155
+    '../own_starlink_trace_int/06-27-amol/angle330/sig3_ant1',... % 156
     '../own_starlink_trace_int/06-27-amol/angle330/sig6_ant1'}; % 154, good, 5 sats, 9 pairs 
     
 expidx = 7;
@@ -104,8 +104,8 @@ expidx = 8;
 stana_exp_info{expidx}.angles = cell(1,1);
 stana_exp_info{expidx}.angles{1}.angleval_deg = -145;
 stana_exp_info{expidx}.angles{1}.filelist = {
-    '../own_starlink_trace_int/06-29-gaines2/angle35/sig2_ant1',... % -157, 3 pairs 
-    '../own_starlink_trace_int/06-29-gaines2/angle35/sig6_ant1',... % -162, 10 pairs 
+    '../own_starlink_trace_int/06-29-gaines2/angle35/sig2_ant1',... % -158, 3 pairs 
+    '../own_starlink_trace_int/06-29-gaines2/angle35/sig6_ant1',... % -161, 10 pairs 
     '../own_starlink_trace_int/06-29-gaines2/angle35/sig7_ant1'}; % -167, one pair
 
 expidx = 9;
@@ -120,7 +120,7 @@ stana_exp_info{expidx}.angles{2}.angleval_deg = 165;
 stana_exp_info{expidx}.angles{2}.filelist = {
     '../own_starlink_trace_int/07-01-gaines3/angle345/sig4_ant1',... % 148, 4 pairs, perfect phase match, why?
     '../own_starlink_trace_int/07-01-gaines3/angle345/sig6_ant1',... % 151, 3 pairs
-    '../own_starlink_trace_int/07-01-gaines3/angle345/sig7_ant1'}; % 151, one good long pair
+    '../own_starlink_trace_int/07-01-gaines3/angle345/sig7_ant1'}; % 153, one good long pair
 
 
 expidx = 10;
@@ -128,6 +128,6 @@ expidx = 10;
 stana_exp_info{expidx}.angles = cell(1,1);
 stana_exp_info{expidx}.angles{1}.angleval_deg = -139;
 stana_exp_info{expidx}.angles{1}.filelist = {
-    '../own_starlink_trace_int/07-01-gaines-tree/angle41/sig2_ant1',... % -151, 2 pairs, not very good phase match 
+    '../own_starlink_trace_int/07-01-gaines-tree/angle41/sig2_ant1',... % -153, 2 pairs, not very good phase match 
     '../own_starlink_trace_int/07-01-gaines-tree/angle41/sig5_ant1',... % -142, 3 pairs, good
     '../own_starlink_trace_int/07-01-gaines-tree/angle41/sig7_ant1'}; % -147, 1 pair
