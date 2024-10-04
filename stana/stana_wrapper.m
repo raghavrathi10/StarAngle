@@ -1,8 +1,8 @@
 if 1
     stana_gen_exp_info;
     stana_USE_WRAPPER = 1;
-    stana_wrapper_cfg.LOAD_SAVED_RES = 1;
-    stana_wrapper_cfg.DO_GEN_EXP_TLE_FILE = 1;
+    stana_wrapper_cfg.LOAD_SAVED_RES = 0;
+    stana_wrapper_cfg.DO_GEN_EXP_TLE_FILE = 0;
     stana_wrapper_cfg.GEN_SIG = 1;
     stana_wrapper_cfg.DO_INIT_SCAN = 1;
     stana_wrapper_cfg.DO_SAT_LM = 1;  
@@ -87,14 +87,15 @@ end
 
 
 
-% close all
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% close all
 
 STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG = 0;
 STANA_WRAPPER_SAVE_FIG_FLAG = 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG;
-STANA_WRAPPER_SAVE_FIG_dir = '../revision_paper/paper_stana_Sensys'
+STANA_WRAPPER_SAVE_FIG_dir = './';
 
 myfontsize = 18;
 if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
@@ -297,26 +298,14 @@ if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
     thisfigname = sprintf('%s/res_err_numsatpair.fig',STANA_WRAPPER_SAVE_FIG_dir);
     thispngname = thisfigname; thispngname(end-2:end) = 'png';
     openfig(thisfigname);
-    if 0
-        p1 = plot(plot_mainres_no_failure(:,5),abs(plot_mainres_no_failure(:,2)-plot_mainres_no_failure(:,1)), '>');
-        set(p1, 'MarkerSize',3);
-    else
-        plot_x_0 = plot_mainres_no_failure(:,5);
-        plot_y_0 = abs(plot_mainres_no_failure(:,2)-plot_mainres_no_failure(:,1));
-        if 0
-            plot_bins = [
-                1,1;
-                2,2;
-                3,3;
-                4,100;
-                ];
-        else
-            plot_bins = [
-                1,1;
-                2,3;
-                4,100;
-                ];
-        end
+    plot_x_0 = plot_mainres_no_failure(:,5);
+    plot_y_0 = abs(plot_mainres_no_failure(:,2)-plot_mainres_no_failure(:,1));
+    
+        plot_bins = [
+            1,1;
+            2,3;
+            4,100;
+            ];
         plot_y_1 = zeros(size(plot_bins,1),2);
         plot_y_2 = zeros(1,size(plot_bins,1));
         for h=1:size(plot_bins,1)
@@ -346,7 +335,7 @@ if 0 || STANA_WRAPPER_MASS_GEN_ALL_FIG_FLAG
         xaxisproperties= get(gca, 'XAxis');
         xaxisproperties.TickLabelInterpreter = 'latex'; % latex for x-axis
         ylim([0 10])
-    end
+
     xlabel('Number of Satellite Pairs')
     ylabel('Median Error (deg)')
     titlestr = sprintf('Error vs. Number of Satellite Pairs');
