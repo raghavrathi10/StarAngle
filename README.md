@@ -21,7 +21,7 @@ Please follow the steps below to successfully setup and run StarAngle
 ### Step 2 - Understanding the dataset:
 
 * The entire dataset is available at https://zenodo.org/records/13881520
-* The naming of each directory is as follows *date-location/angle__/*
+* The naming of each directory is as follows *"date-location/angle__/"*
 * There are 4 types of files present. tle, cfg, mat and data.
   * There are 2 types of *tle* files present, All_sat.tle is the database of all the starlink satellites downloaded before running that particular set of experiments and sig_.tle. Which contains the satellites detected by StarAngle flying above the ground station at the time of experiment.
   * The sig_.cgf file has the following informaiton in the same order
