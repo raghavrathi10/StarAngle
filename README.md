@@ -12,11 +12,11 @@ Please follow the steps below to successfully setup and run StarAngle
 
 ### Step 1 - Instructions to setup the program execution environment:
 
-* Software - MATLAB R2023b with Aerospace toolbox, communications toolbox, curve fitting toolbox, fixed-point designer, satellite communications toolbox and Statistics and Machine Learning Toolbox.
-* Storage - Code + Traces 35 GB.
-* Setup Time - Less than 1 hour.
-* Time to Run - About 2 min to process a trace and about 90 min to process all traces. (With recommended hardware)
-* Recommended Hardware - 11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz, 8 cores, 16 threads, 56 GB ram, NVIDIA GeForce GT 730 2GB memory.
+* **Software** - MATLAB R2023b with Aerospace toolbox, communications toolbox, curve fitting toolbox, fixed-point designer, satellite communications toolbox and Statistics and Machine Learning Toolbox.
+* **Storage** - Code + Traces 35 GB.
+* **Setup Time** - Less than 1 hour.
+* **Time to Run** - About 2 min to process a trace and about 90 min to process all traces. (With recommended hardware)
+* **Recommended Hardware** - 11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz, 8 cores, 16 threads, 56 GB ram, NVIDIA GeForce GT 730 2GB memory.
 
 ### Step 2 - Understanding the dataset:
 
