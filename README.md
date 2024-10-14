@@ -35,3 +35,6 @@ Please follow the steps below to successfully setup and run StarAngle
    * sig__ant1 and sig__ant2 are the signal capture from antenna 1 and antenna 2 respectively.
 
 ### Step 3 - Understanding the functions of StarAngle: 
+1. The first step to run StarAngle is to call **stana_init**. This will initialize the crucial config variables which are used throughout the program.
+2. **stana_wrapper** is a wrapper function that can run through all the trace files.
+3. In order to run a trace file indivudually, you can run the **stana_process** file by changing the file name inside the code.
